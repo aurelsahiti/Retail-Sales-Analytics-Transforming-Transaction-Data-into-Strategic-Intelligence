@@ -24,34 +24,29 @@ Executives needed clear answers to:
 
 The goal was to build an **automated AWS analytics pipeline** that continuously delivers insights into these questions — replacing manual Excel-based reporting with scalable, real-time intelligence.
 
-![AWS Retail Data Flow](images/aws_data_pipeline.png)
-
 ---
 
 ## Methodology:
 The end-to-end pipeline was built entirely within AWS, using the following architecture:
 
 1. **Data Ingestion – Amazon S3**  
-   - Transactional sales data (CSV format) was stored in an S3 data lake.  
-   - Event triggers were configured for automatic downstream processing upon file upload.
+   Transactional sales data (CSV format) stored in an S3 data lake.  
+   Event triggers configured for automatic downstream processing upon file upload.
 
 2. **Data Transformation – AWS Glue**  
-   - A Glue ETL job cleaned, joined, and normalized datasets (pricing, product, and transaction history).  
-   - Partitioned the data by date and category to optimize Athena queries.
+   Glue ETL job cleaned, joined, and normalized datasets (pricing, product, and transaction history).  
+   Partitioned data by date and category to optimize Athena queries.
 
 3. **Automation – AWS Lambda**  
-   - Lambda functions automated job triggers and metadata updates whenever new files were added to S3.  
-   - The pipeline achieved a fully serverless, event-driven design with no manual intervention.
+   Lambda functions triggered Glue jobs and metadata updates whenever new files were added to S3.  
+   The pipeline achieved a fully **serverless, event-driven design** requiring no manual intervention.
 
 4. **Data Query – Amazon Athena**  
-   - SQL-based queries aggregated total revenue, spending averages, and price sensitivities.  
-   - Created optimized Athena tables for use by QuickSight.
+   SQL-based queries aggregated total revenue, spending averages, and price sensitivities.  
+   Created optimized Athena tables for QuickSight dashboards.
 
 5. **Visualization – Amazon QuickSight**  
-   - Developed an interactive retail analytics dashboard visualizing:  
-     - *Average Total Spent vs. Average Price Per Unit*  
-     - *Daily and Seasonal Spending Trends*  
-     - *Quantity and Cross-Selling Indicators*
+   Built interactive visual dashboards showing pricing, time-based, and volume metrics.
 
 ---
 
@@ -60,47 +55,64 @@ The end-to-end pipeline was built entirely within AWS, using the following archi
 **Data Engineering:** ETL pipelines, serverless automation, data partitioning  
 **Analytics:** SQL, aggregation, correlation, pricing optimization, trend forecasting  
 **Visualization:** Interactive dashboards, KPI tracking, time-series charts  
-**Programming:** Python (for Glue and Lambda scripts), SQL (for Athena)  
+**Programming:** Python (for Glue/Lambda scripts), SQL (for Athena)  
 
 ---
 
 ## Results & Business Recommendations:
 The cloud-based analytics platform uncovered key insights that drive measurable outcomes:
 
-- **Pricing Optimization:**  
-  Premium-priced product categories generated the highest total spending per customer, highlighting opportunities for margin improvement without volume loss.
+### **1. Pricing Strategy Foundation**
+<p align="center">
+  <img src="images/pricing_strategy.png" width="650"/>
+</p>
 
-- **Temporal Spending Patterns:**  
-  Spending peaked on specific weekdays and seasonal periods, informing promotional timing and restocking decisions.
+Premium-priced categories such as **Butchers ($25.11)** and **Electric Household Essentials ($24.39)** generated the highest customer spending levels ($139.12 and $134.44 respectively).  
+Lower-priced categories (e.g., **Milk Products** and **Patisserie**) corresponded with reduced total spending.  
+This correlation indicates opportunities to **strategically adjust pricing** to enhance margins without reducing transaction volume.
 
-- **Volume & Cross-Selling Opportunities:**  
-  Quantity-based correlations identified strong cross-selling relationships, especially between complementary product groups.
+---
 
-These findings directly inform the following recommendations:
+### **2. Temporal Spending Patterns**
+<p align="center">
+  <img src="images/temporal_patterns.png" width="650"/>
+</p>
 
-- Implement **automated price adjustments** for high-impact SKUs.  
-- Schedule **targeted promotions** during identified high-spend cycles.  
-- Integrate **cross-sell prompts** in POS systems based on data-driven pairing patterns.
+Time-series analysis showed clear **daily and seasonal spending fluctuations**, with peak activity on **June 6, 2023 ($292)** and a low on **May 30, 2023 ($26.33)** — an 11x difference.  
+These temporal insights guide **inventory planning**, **promotion timing**, and **cash flow forecasting**.
 
-The AWS-powered pipeline reduced manual reporting time by over **80%**, and improved decision-making visibility for stakeholders across product, sales, and marketing teams.
+---
 
-![QuickSight Retail Dashboard](images/quicksight_dashboard.png)
+### **3. Volume Behavior Analysis**
+<p align="center">
+  <img src="images/volume_behavior.png" width="400"/>
+</p>
+
+Quantity-based KPIs revealed strong correlations between discount-applied items and higher transaction counts — a **42.9% lift in purchasing volume**.  
+This provides a foundation for developing **cross-selling strategies** and **demand forecasting models**.
+
+---
+
+### Summary of Insights:
+- **Pricing Optimization:** Higher price points correlate with higher spend, suggesting room for margin expansion.  
+- **Temporal Behavior:** Identified spending cycles drive promotional strategy alignment.  
+- **Volume Patterns:** High-purchase quantities signal potential for cross-sell and bundled promotions.
 
 ---
 
 ## Business Impact:
 - **Data Refresh Frequency:** Real-time via Lambda triggers on S3 uploads  
-- **Operational Efficiency:** Reduced ad hoc data requests by 6–8 hours per week  
-- **Revenue Lift Potential:** Estimated 12–15% through optimized pricing and promotions  
-- **Scalability:** Fully serverless, maintenance-free architecture  
+- **Operational Efficiency:** Reduced manual reporting by 6–8 hours per week  
+- **Revenue Lift Potential:** Estimated **12–15%** through optimized pricing and promotions  
+- **Scalability:** Fully serverless, cost-efficient, maintenance-free architecture  
 
 ---
 
 ## Next Steps:
-- Extend the ETL pipeline to incorporate **customer segmentation data** for deeper personalization.  
-- Integrate **forecasting models in AWS SageMaker** to predict demand and optimize inventory.  
-- Expand **QuickSight dashboards** to include profitability by region, store, and product line.  
-- Deploy **automated alerts** for anomalies in revenue and transaction volume.
+- Integrate **AWS SageMaker** for predictive demand forecasting.  
+- Incorporate **customer segmentation** data for personalized pricing.  
+- Expand **QuickSight dashboards** to visualize profitability by store, region, and product line.  
+- Automate **anomaly detection** for real-time revenue alerts.  
 
 ---
 
@@ -108,9 +120,9 @@ The AWS-powered pipeline reduced manual reporting time by over **80%**, and impr
 **Cloud:** AWS (S3, Lambda, Glue, Athena, QuickSight)  
 **Languages:** Python, SQL  
 **Visualization:** Amazon QuickSight  
-**Data Storage:** AWS S3 (Parquet + CSV partitions)  
-**Orchestration:** Event-driven serverless triggers via Lambda  
-**Security:** IAM roles and S3 bucket policies for data access control  
+**Storage:** AWS S3 (Parquet + CSV)  
+**Automation:** Lambda event triggers, Glue ETL jobs  
+**Security:** IAM roles and S3 bucket policies  
 
 ---
 
