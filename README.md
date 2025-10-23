@@ -114,28 +114,6 @@ The AWS-powered pipeline reduced manual reporting time by over **80%**, and impr
 
 ---
 
-## Repository Structure:
-retail-sales-analytics/
-├── lambda/
-│ └── trigger_glue_job.py
-├── glue/
-│ └── transform_sales_data.py
-├── athena/
-│ └── retail_analysis_queries.sql
-├── images/
-│ ├── aws_data_pipeline.png
-│ ├── quicksight_dashboard.png
-│ ├── pricing_strategy.png
-│ ├── temporal_patterns.png
-│ └── volume_behavior.png
-├── reports/
-│ └── Retail_Sales_Analytics_Report.pdf
-├── requirements.txt
-└── README.md
-
-
----
-
 ## Author:
 **Aurel Sahiti**  
 Data Science Graduate Student | Cloud Data Engineering & Retail Analytics  
