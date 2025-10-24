@@ -2,12 +2,12 @@
 
 ## Executive Summary:
 In today’s competitive retail environment, our organization needed to better understand how pricing, purchasing behavior, and temporal patterns impact revenue performance.  
-Using **AWS Cloud Services** — including **S3, Lambda, Glue, Athena, and QuickSight** — I designed and deployed a **serverless data analytics pipeline** to extract, transform, and visualize retail transaction data at scale.
+Using **AWS Cloud Services**, including **S3, Lambda, Glue, Athena, and QuickSight**, I designed and deployed a **serverless data analytics pipeline** to extract, transform, and visualize retail transaction data at scale.
 
 The analysis revealed that **revenue gains can be maximized through pricing optimization, smarter promotional timing, and enhanced cross-selling strategies**.  
 Based on these insights, I recommend the following data-driven actions to increase overall profitability:
 
-- Adjust pricing thresholds across high-volume categories to align with customer spending elasticity.  
+- Adjust pricing thresholds across high volume categories to align with customer spending elasticity.  
 - Schedule promotions during high-performing time windows identified through temporal trend analysis.  
 - Implement targeted cross-sell campaigns based on correlated purchasing volumes.  
 
@@ -22,7 +22,7 @@ Executives needed clear answers to:
 - When do customers spend the most, and how can we capitalize on these peaks?  
 - How can we identify patterns in purchase quantities to enhance cross-selling and demand forecasting?  
 
-The goal was to build an **automated AWS analytics pipeline** that continuously delivers insights into these questions — replacing manual Excel-based reporting with scalable, real-time intelligence.
+The goal was to build an **automated AWS analytics pipeline** that continuously delivers insights into these questions, replacing manual Excel based reporting with scalable, real-time intelligence.
 
 ---
 
@@ -42,11 +42,11 @@ The end-to-end pipeline was built entirely within AWS, using the following archi
    The pipeline achieved a fully **serverless, event-driven design** requiring no manual intervention.
 
 4. **Data Query – Amazon Athena**  
-   SQL-based queries aggregated total revenue, spending averages, and price sensitivities.  
+   SQL based queries aggregated total revenue, spending averages, and price sensitivities.  
    Created optimized Athena tables for QuickSight dashboards.
 
 5. **Visualization – Amazon QuickSight**  
-   Built interactive visual dashboards showing pricing, time-based, and volume metrics.
+   Built interactive visual dashboards showing pricing, time based, and volume metrics.
 
 ---
 
@@ -67,8 +67,8 @@ The cloud-based analytics platform uncovered key insights that drive measurable 
   <img src="images/pricing_strategy.png" width="650"/>
 </p>
 
-Premium-priced categories such as **Butchers ($25.11)** and **Electric Household Essentials ($24.39)** generated the highest customer spending levels ($139.12 and $134.44 respectively).  
-Lower-priced categories (e.g., **Milk Products** and **Patisserie**) corresponded with reduced total spending.  
+Premium priced categories such as **Butchers ($25.11)** and **Electric Household Essentials ($24.39)** generated the highest customer spending levels ($139.12 and $134.44 respectively).  
+Lower priced categories (e.g., **Milk Products** and **Patisserie**) corresponded with reduced total spending.  
 This correlation indicates opportunities to **strategically adjust pricing** to enhance margins without reducing transaction volume.
 
 ---
@@ -78,7 +78,7 @@ This correlation indicates opportunities to **strategically adjust pricing** to 
   <img src="images/temporal_patterns.png" width="650"/>
 </p>
 
-Time-series analysis showed clear **daily and seasonal spending fluctuations**, with peak activity on **June 6, 2023 ($292)** and a low on **May 30, 2023 ($26.33)** — an 11x difference.  
+Time series analysis showed clear **daily and seasonal spending fluctuations**, with peak activity on **June 6, 2023 ($292)** and a low on **May 30, 2023 ($26.33)**, an 11x difference.  
 These temporal insights guide **inventory planning**, **promotion timing**, and **cash flow forecasting**.
 
 ---
@@ -88,7 +88,7 @@ These temporal insights guide **inventory planning**, **promotion timing**, and 
   <img src="images/volume_behavior.png" width="400"/>
 </p>
 
-Quantity-based KPIs revealed strong correlations between discount-applied items and higher transaction counts — a **42.9% lift in purchasing volume**.  
+Quantity based KPIs revealed strong correlations between discount applied items and higher transaction counts, a **42.9% lift in purchasing volume**.  
 This provides a foundation for developing **cross-selling strategies** and **demand forecasting models**.
 
 ---
