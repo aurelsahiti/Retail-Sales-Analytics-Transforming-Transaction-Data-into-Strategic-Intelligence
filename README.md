@@ -129,6 +129,6 @@ This provides a foundation for developing **cross-selling strategies** and **dem
 ## Author:
 **Aurel Sahiti**  
 Data Science Graduate Student | Cloud Data Engineering & Retail Analytics  
-📊 [LinkedIn](https://linkedin.com/in/aurelsahiti) | 🌐 [GitHub](https://github.com/aurelsahiti)
+[LinkedIn](https://linkedin.com/in/aurelsahiti) | [GitHub](https://github.com/aurelsahiti)
 
 ---
